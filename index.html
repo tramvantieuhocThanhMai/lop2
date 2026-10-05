@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thư viện bài tập Tiếng Việt Lớp 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sun:#ffc93c;--sun-deep:#ffab00;--coral-deep:#e8523f;--leaf:#3fb083;--leaf-deep:#2f9270;--blue:#3b8fe0;--ink:#2d3142;--ink-soft:#5a5f75;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Quicksand','Segoe UI',Arial,sans-serif;font-size:18px;color:var(--ink);
+ background:radial-gradient(circle at 12% 4%,#fff6da 0%,transparent 40%),radial-gradient(circle at 90% 2%,#ffe1e1 0%,transparent 35%),linear-gradient(180deg,#eaf6ff,#f5fbff 60%,#fdf9ef);min-height:100vh;padding-bottom:50px;}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px;}
+.hero{text-align:center;padding:30px 14px 8px;}
+.badge{display:inline-block;background:var(--sun);color:#5a3b00;font-weight:700;border-radius:99px;padding:5px 16px;font-size:15px;letter-spacing:.5px;}
+h1{font-family:'Baloo 2',sans-serif;font-size:32px;line-height:1.2;margin:12px 0 6px;}
+h1 span{color:var(--coral-deep);}
+.hero p{margin:0;color:var(--ink-soft);}
+.list{display:grid;gap:14px;margin-top:22px;}
+a.item{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;box-shadow:0 8px 22px rgba(45,49,66,.10);padding:16px;text-decoration:none;color:var(--ink);border:3px solid transparent;transition:transform .15s,border-color .15s;}
+a.item:hover,a.item:focus{transform:translateY(-3px);border-color:var(--sun);outline:none;}
+.wk{flex:none;width:74px;height:74px;border-radius:20px;background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;line-height:1;}
+.wk small{font-size:14px;font-weight:600;}
+.wk b{font-size:32px;font-weight:800;}
+.item:nth-child(4n+2) .wk{background:var(--leaf);}
+.item:nth-child(4n+3) .wk{background:var(--coral-deep);}
+.item:nth-child(4n+4) .wk{background:var(--sun-deep);}
+.txt{flex:1;min-width:0;}
+.txt h2{font-family:'Baloo 2',sans-serif;font-size:21px;line-height:1.25;margin:0 0 2px;}
+.txt p{margin:0;color:var(--ink-soft);font-size:16px;}
+.go{flex:none;font-family:'Baloo 2',sans-serif;font-weight:700;background:var(--leaf);color:#fff;border-radius:99px;padding:8px 16px;box-shadow:0 4px 0 var(--leaf-deep);}
+.foot{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:26px;}
+@media(max-width:480px){h1{font-size:26px}.wk{width:62px;height:62px}.wk b{font-size:26px}.go{display:none}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <span class="badge">TIẾNG VIỆT · LỚP 2</span>
+  <h1>Thư viện <span>bài tập tương tác</span></h1>
+  <p>Con chọn tuần cần làm rồi bấm vào để bắt đầu nhé! 🌈</p>
+</div>
+<div class="wrap">
+  <div class="list" id="list"></div>
+  <p class="foot">Làm xong con nhớ bấm “Nộp bài” để cô nhận được điểm nhé.</p>
+</div>
+<script>
+/* ===== DANH SÁCH PHIẾU — mỗi tuần thêm 1 dòng theo mẫu bên dưới ===== */
+const PHIEU = [
+  {tuan:1, ten:"Từ chỉ sự vật, hoạt động. Câu giới thiệu", mota:"24 bài · Luyện từ và câu", file:"phieu-lop2-tuan1.html"}
+];
+const list=document.getElementById('list');
+PHIEU.forEach(p=>{
+  const a=document.createElement('a'); a.className='item'; a.href=p.file;
+  const wk=document.createElement('div'); wk.className='wk';
+  const s=document.createElement('small'); s.textContent='Tuần';
+  const b=document.createElement('b'); b.textContent=p.tuan; wk.append(s,b);
+  const t=document.createElement('div'); t.className='txt';
+  const h=document.createElement('h2'); h.textContent=p.ten;
+  const d=document.createElement('p'); d.textContent=p.mota; t.append(h,d);
+  const g=document.createElement('span'); g.className='go'; g.textContent='Làm bài ▶';
+  a.append(wk,t,g); list.appendChild(a);
+});
+</script>
+</body>
+</html>
