@@ -7,60 +7,84 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--sun:#ffc93c;--sun-deep:#ffab00;--coral-deep:#e8523f;--leaf:#3fb083;--leaf-deep:#2f9270;--blue:#3b8fe0;--ink:#2d3142;--ink-soft:#5a5f75;}
-*{box-sizing:border-box;}
-body{margin:0;font-family:'Quicksand','Segoe UI',Arial,sans-serif;font-size:18px;color:var(--ink);
- background:radial-gradient(circle at 12% 4%,#fff6da 0%,transparent 40%),radial-gradient(circle at 90% 2%,#ffe1e1 0%,transparent 35%),linear-gradient(180deg,#eaf6ff,#f5fbff 60%,#fdf9ef);min-height:100vh;padding-bottom:50px;}
-.wrap{max-width:760px;margin:0 auto;padding:0 14px;}
-.hero{text-align:center;padding:30px 14px 8px;}
-.badge{display:inline-block;background:var(--sun);color:#5a3b00;font-weight:700;border-radius:99px;padding:5px 16px;font-size:15px;letter-spacing:.5px;}
-h1{font-family:'Baloo 2',sans-serif;font-size:32px;line-height:1.2;margin:12px 0 6px;}
-h1 span{color:var(--coral-deep);}
-.hero p{margin:0;color:var(--ink-soft);}
-.list{display:grid;gap:14px;margin-top:22px;}
-a.item{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;box-shadow:0 8px 22px rgba(45,49,66,.10);padding:16px;text-decoration:none;color:var(--ink);border:3px solid transparent;transition:transform .15s,border-color .15s;}
-a.item:hover,a.item:focus{transform:translateY(-3px);border-color:var(--sun);outline:none;}
-.wk{flex:none;width:74px;height:74px;border-radius:20px;background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;line-height:1;}
-.wk small{font-size:14px;font-weight:600;}
-.wk b{font-size:32px;font-weight:800;}
-.item:nth-child(4n+2) .wk{background:var(--leaf);}
-.item:nth-child(4n+3) .wk{background:var(--coral-deep);}
-.item:nth-child(4n+4) .wk{background:var(--sun-deep);}
+:root{--sun:#ffc93c;--sun-deep:#ffab00;--coral:#ff6b6b;--coral-deep:#e8523f;--leaf:#3fb083;--plum:#8675a9;--ink:#2d3142;--ink-soft:#5a5f75;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{margin:0;font-family:'Quicksand',system-ui,sans-serif;color:var(--ink);font-size:19px;min-height:100vh;padding-bottom:50px;
+ background:radial-gradient(circle at 12% 8%,#fff6da 0%,transparent 45%),radial-gradient(circle at 90% 4%,#ffe1e1 0%,transparent 40%),linear-gradient(180deg,#eaf6ff 0%,#f5fbff 60%,#fdf9ef 100%);}
+.hero{text-align:center;padding:34px 18px 8px;}
+.badge{display:inline-block;background:#fff;border:2px dashed var(--sun-deep);color:var(--coral-deep);font-weight:700;font-size:16px;padding:6px 18px;border-radius:999px;margin-bottom:12px;}
+h1{font-family:'Baloo 2',sans-serif;font-size:clamp(30px,7.5vw,46px);line-height:1.15;margin:0 0 8px;color:var(--coral-deep);}
+.hero p{margin:0 auto;max-width:520px;font-weight:600;color:var(--ink-soft);}
+.list{max-width:640px;margin:26px auto 0;padding:0 14px;display:flex;flex-direction:column;gap:16px;}
+.item{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);background:#fff;border-radius:24px;padding:16px 18px;border:3px solid #fff;box-shadow:0 10px 26px rgba(45,49,66,.10);}
+.item:active{transform:scale(.98);}
+.item:hover,.item:focus-visible{border-color:var(--sun-deep);outline:none;}
+.num{flex:none;width:68px;height:68px;border-radius:22px;background:var(--sun);color:#7a4b00;font-family:'Baloo 2',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;}
+.num small{font-size:14px;font-weight:700;}
+.num b{font-size:30px;font-weight:800;}
+.item:nth-child(3n+2) .num{background:#bfe8d6;color:#1d6a4a;}
+.item:nth-child(3n) .num{background:#dcd4f0;color:#4d3f7a;}
 .txt{flex:1;min-width:0;}
-.txt h2{font-family:'Baloo 2',sans-serif;font-size:21px;line-height:1.25;margin:0 0 2px;}
-.txt p{margin:0;color:var(--ink-soft);font-size:16px;}
-.go{flex:none;font-family:'Baloo 2',sans-serif;font-weight:700;background:var(--leaf);color:#fff;border-radius:99px;padding:8px 16px;box-shadow:0 4px 0 var(--leaf-deep);}
-.foot{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:26px;}
-@media(max-width:480px){h1{font-size:26px}.wk{width:62px;height:62px}.wk b{font-size:26px}.go{display:none}}
+.txt .t{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:23px;line-height:1.25;}
+.txt .s{font-weight:600;font-size:16px;color:var(--ink-soft);}
+.new{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px;margin-left:6px;vertical-align:middle;}
+.go{flex:none;font-size:26px;}
+.msg{text-align:center;font-weight:700;color:var(--ink-soft);padding:26px 10px;}
+.note{max-width:640px;margin:26px auto 0;padding:0 18px;text-align:center;font-weight:600;color:var(--ink-soft);font-size:17px;}
 </style>
 </head>
 <body>
 <div class="hero">
-  <span class="badge">TIẾNG VIỆT · LỚP 2</span>
-  <h1>Thư viện <span>bài tập tương tác</span></h1>
+  <span class="badge">Tiếng Việt Lớp 2</span>
+  <h1>Thư viện bài tập tương tác</h1>
   <p>Con chọn tuần cần làm rồi bấm vào để bắt đầu nhé! 🌈</p>
 </div>
-<div class="wrap">
-  <div class="list" id="list"></div>
-  <p class="foot">Làm xong con nhớ bấm “Nộp bài” để cô nhận được điểm nhé.</p>
-</div>
+
+<div class="list" id="list"><div class="msg">⏳ Đang tìm bài tập...</div></div>
+<p class="note">Làm xong con nhớ bấm “Nộp bài” để cô nhận được điểm nhé.</p>
+
 <script>
-/* ===== DANH SÁCH PHIẾU — mỗi tuần thêm 1 dòng theo mẫu bên dưới ===== */
-const PHIEU = [
-  {tuan:1, ten:"Từ chỉ sự vật, hoạt động. Câu giới thiệu", mota:"24 bài · Luyện từ và câu", file:"phieu-lop2-tuan1.html"}
-];
-const list=document.getElementById('list');
-PHIEU.forEach(p=>{
-  const a=document.createElement('a'); a.className='item'; a.href=p.file;
-  const wk=document.createElement('div'); wk.className='wk';
-  const s=document.createElement('small'); s.textContent='Tuần';
-  const b=document.createElement('b'); b.textContent=p.tuan; wk.append(s,b);
-  const t=document.createElement('div'); t.className='txt';
-  const h=document.createElement('h2'); h.textContent=p.ten;
-  const d=document.createElement('p'); d.textContent=p.mota; t.append(h,d);
-  const g=document.createElement('span'); g.className='go'; g.textContent='Làm bài ▶';
-  a.append(wk,t,g); list.appendChild(a);
-});
+/* ================= HƯỚNG DẪN CHO GIÁO VIÊN =================
+   Trang này TỰ TÌM mọi file phieu-lop2-tuan<N>.html nằm cùng thư mục.
+   Thêm phiếu mới: chỉ cần tải file phieu-lop2-tuan<N>.html lên repo, KHÔNG cần sửa trang này.
+   Muốn hiện tên bài dưới chữ "Tuần N" thì thêm 1 dòng vào bảng TEN_BAI bên dưới (không bắt buộc). */
+var TEN_BAI={
+  5:"Khi trang sách mở ra"
+};
+var TUAN_TOI_DA=40;          /* tìm từ tuần 1 đến tuần 40 */
+var DU_PHONG=[1,5];          /* nếu máy không tự tìm được thì hiện các tuần này */
+
+function fileName(n){return "phieu-lop2-tuan"+n+".html";}
+function render(weeks){
+  var list=document.getElementById("list");
+  if(!weeks.length){list.innerHTML='<div class="msg">Chưa có bài tập nào. Con quay lại sau nhé!</div>';return;}
+  weeks.sort(function(a,b){return b-a;});   /* tuần mới nhất ở trên cùng */
+  list.innerHTML="";
+  weeks.forEach(function(n,i){
+    var a=document.createElement("a");a.className="item";a.href=fileName(n);
+    var num=document.createElement("div");num.className="num";num.innerHTML="<small>Tuần</small><b>"+n+"</b>";
+    var txt=document.createElement("div");txt.className="txt";
+    var t=document.createElement("div");t.className="t";t.textContent=TEN_BAI[n]||("Phiếu bài tập tuần "+n);
+    if(i===0&&weeks.length>1){var nw=document.createElement("span");nw.className="new";nw.textContent="Mới";t.appendChild(nw);}
+    var s=document.createElement("div");s.className="s";s.textContent="Bấm để làm bài";
+    txt.appendChild(t);txt.appendChild(s);
+    var go=document.createElement("div");go.className="go";go.textContent="👉";
+    a.appendChild(num);a.appendChild(txt);a.appendChild(go);list.appendChild(a);
+  });
+}
+function check(n){
+  return fetch(fileName(n),{method:"HEAD",cache:"no-store"})
+    .then(function(r){return r.ok?n:null;})
+    .catch(function(){return "err";});
+}
+(function(){
+  var jobs=[];for(var n=1;n<=TUAN_TOI_DA;n++)jobs.push(check(n));
+  Promise.all(jobs).then(function(res){
+    var found=res.filter(function(x){return typeof x==="number";});
+    var allErr=res.every(function(x){return x==="err";});
+    render(allErr?DU_PHONG.slice():found);
+  });
+})();
 </script>
 </body>
 </html>
