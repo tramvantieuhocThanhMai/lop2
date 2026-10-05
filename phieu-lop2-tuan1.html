@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lớp 2 - Tuần 1: Từ chỉ sự vật, hoạt động. Câu giới thiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#eaf6ff;--sun:#ffc93c;--sun-deep:#ffab00;--coral:#ff6b6b;--coral-deep:#e8523f;--leaf:#3fb083;--leaf-deep:#2f9270;--plum:#8675a9;--blue:#3b8fe0;--ink:#2d3142;--ink-soft:#5a5f75;--line:#e1e9f3;--shadow:0 8px 22px rgba(45,49,66,.10);}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Quicksand','Segoe UI',Arial,sans-serif;font-size:19px;line-height:1.55;color:var(--ink);
+ background:radial-gradient(circle at 12% 4%,#fff6da 0%,transparent 40%),radial-gradient(circle at 90% 2%,#ffe1e1 0%,transparent 35%),linear-gradient(180deg,var(--sky),#f5fbff 60%,#fdf9ef);min-height:100vh;padding-bottom:70px;}
+h1,h2,h3,.dsp{font-family:'Baloo 2','Quicksand','Segoe UI',Arial,sans-serif;}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px;}
+.hero{text-align:center;padding:26px 14px 10px;}
+.badge{display:inline-block;background:var(--sun);color:#5a3b00;font-weight:700;border-radius:99px;padding:5px 16px;font-size:15px;letter-spacing:.5px;}
+.hero h1{font-size:30px;line-height:1.2;margin:12px 0 6px;}
+.hero h1 span{color:var(--coral-deep);}
+.hero p{margin:0;color:var(--ink-soft);}
+.card{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:18px 16px;margin:18px 0;}
+.name-card label{font-weight:700;display:block;margin-bottom:6px;}
+input[type=text],textarea{width:100%;font:inherit;padding:12px 14px;border:2.5px solid var(--line);border-radius:14px;outline:none;color:var(--ink);background:#fff;}
+input[type=text]:focus,textarea:focus{border-color:var(--blue);}
+textarea{resize:vertical;min-height:60px;}
+/* kiến thức */
+.know{border:3px solid var(--sun);background:#fffaf0;}
+.know h2{margin:0 0 10px;font-size:26px;color:#b36b00;}
+.kcard{background:#fff;border-radius:16px;padding:14px;margin:12px 0;border-left:8px solid var(--leaf);}
+.kcard.hd{border-left-color:var(--coral);}
+.kcard.gt{border-left-color:var(--plum);}
+.kcard h3{margin:0 0 4px;font-size:21px;}
+.kcard p{margin:4px 0;}
+.kw-sv{color:var(--leaf-deep);font-weight:700;}
+.kw-hd{color:var(--coral-deep);font-weight:700;}
+.kw-gt{color:var(--plum);font-weight:700;}
+.ex-lbl{font-weight:700;color:var(--ink-soft);}
+.btn{font:inherit;font-family:'Baloo 2','Quicksand',sans-serif;font-weight:700;font-size:21px;border:none;border-radius:99px;padding:14px 26px;cursor:pointer;color:#fff;background:var(--leaf);box-shadow:0 5px 0 var(--leaf-deep);display:block;margin:16px auto 6px;min-height:56px;}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--leaf-deep);}
+.btn.orange{background:var(--sun-deep);box-shadow:0 5px 0 #c98200;}
+#exArea{display:none;}
+.sec-title{font-family:'Baloo 2',sans-serif;font-size:23px;font-weight:800;color:var(--blue);margin:26px 0 0;text-align:center;}
+/* bài tập */
+.q-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
+.q-num{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:22px;background:var(--blue);color:#fff;border-radius:99px;padding:2px 16px;}
+.review{font:inherit;font-size:15px;font-weight:700;border:2px solid var(--sun-deep);background:#fff8e1;color:#8a5a00;border-radius:99px;padding:6px 12px;cursor:pointer;min-height:38px;}
+.q-title{font-weight:700;margin:10px 0 4px;}
+.how{color:var(--ink-soft);font-size:16px;margin:0 0 10px;}
+.passage{background:#f2f8ff;border:2px dashed #b8d6f5;border-radius:14px;padding:12px;margin:8px 0;}
+.part{margin:12px 0;padding-top:4px;}
+.part-lbl{font-weight:700;margin-bottom:4px;}
+.toks{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.toks.col{flex-direction:column;align-items:stretch;}
+.toks.col .chip{text-align:left;}
+.chip{font:inherit;font-weight:600;border:2.5px solid var(--line);background:#fff;color:var(--ink);border-radius:14px;padding:8px 14px;min-height:48px;cursor:pointer;}
+.chip.on{background:#fff3c4;border-color:var(--sun-deep);}
+.chip.ok{background:#dcf5e9;border-color:var(--leaf);color:#14613f;}
+.chip.bad{background:#ffe3e3;border-color:var(--coral);color:#a32a1c;}
+.chip.miss{border-color:var(--leaf);border-style:dashed;}
+.chip:disabled{cursor:default;opacity:1;}
+.chip.used{opacity:.3;}
+.pt{font-weight:600;}
+.groups{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;}
+.gbox{border:2.5px dashed #b8d6f5;border-radius:16px;background:#f7fbff;padding:8px;min-height:96px;cursor:pointer;}
+.gbox h4{margin:0 0 6px;text-align:center;font-family:'Baloo 2',sans-serif;font-size:18px;color:var(--blue);}
+.gbox .toks{gap:6px;}
+.pool{min-height:52px;}
+.mcols{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mcols .chip{width:100%;text-align:left;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bdg{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:50%;color:#fff;font-size:14px;font-weight:700;flex:none;}
+.c0{background:#3b8fe0}.c1{background:#e8523f}.c2{background:#3fb083}.c3{background:#8675a9}.c4{background:#ffab00}
+.sent{margin:14px 0 6px;font-weight:600;line-height:2.3;}
+.slot{font:inherit;font-weight:700;min-width:84px;min-height:44px;border:none;border-bottom:3px solid var(--blue);background:#eef6ff;border-radius:10px 10px 0 0;padding:4px 10px;color:var(--blue);cursor:pointer;margin:0 3px;}
+.slot.ok{background:#dcf5e9;border-color:var(--leaf);color:#14613f;}
+.slot.bad{background:#ffe3e3;border-color:var(--coral);color:#a32a1c;}
+.line{min-height:60px;border:2.5px solid var(--line);border-radius:14px;padding:6px;background:#fbfdff;margin:6px 0;}
+.line.ok{border-color:var(--leaf);background:#f0fbf5;}
+.line.bad{border-color:var(--coral);background:#fff5f5;}
+.fb{margin-top:12px;border-radius:14px;padding:10px 12px;font-size:17px;}
+.fb.good{background:#dcf5e9;color:#14613f;font-weight:700;}
+.fb.fix{background:#fff3e6;color:#6b3d00;}
+.fb.wait{background:#efeaf8;color:#4b3d73;}
+.fb b{font-weight:700;}
+.fb .hint{display:block;margin-top:6px;font-style:italic;}
+.submit-zone{text-align:center;}
+#progress{font-weight:700;color:var(--ink-soft);}
+#result{display:none;text-align:center;border:3px solid var(--sun);}
+#result .emo{font-size:60px;line-height:1;}
+#result .score{font-family:'Baloo 2',sans-serif;font-size:44px;font-weight:800;color:var(--coral-deep);}
+.modal{position:fixed;inset:0;background:rgba(45,49,66,.55);display:none;align-items:center;justify-content:center;padding:14px;z-index:9;}
+.modal.show{display:flex;}
+.modal .box{background:#fffaf0;border-radius:22px;max-width:560px;width:100%;max-height:86vh;overflow:auto;padding:16px;}
+@media(max-width:480px){body{font-size:18px}.hero h1{font-size:25px}.mcols{gap:6px}.chip{padding:8px 10px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="badge">TIẾNG VIỆT · LỚP 2 · TUẦN 1</span>
+  <h1>Từ chỉ <span>sự vật</span>, <span>hoạt động</span>.<br>Câu giới thiệu</h1>
+  <p>Con đọc phần kiến thức trước, rồi làm bài nhé! 🌈</p>
+</div>
+
+<div class="wrap">
+  <div class="card name-card">
+    <label for="studentName">✏️ Họ và tên của con là gì?</label>
+    <input type="text" id="studentName" placeholder="Nhập họ và tên của con...">
+  </div>
+
+  <div class="card know" id="knowBox">
+    <h2>💡 Kiến thức cần nhớ</h2>
+    <div id="knowCards"></div>
+    <button class="btn" id="startBtn">Con đã hiểu, bắt đầu làm bài 🚀</button>
+  </div>
+
+  <div id="exArea">
+    <div id="exList"></div>
+    <div class="card submit-zone">
+      <div id="progress"></div>
+      <button class="btn orange" id="submitBtn">Nộp bài 🎉</button>
+    </div>
+    <div class="card" id="result">
+      <div class="emo" id="resEmo"></div>
+      <div class="score" id="resScore"></div>
+      <p id="resMsg" style="font-weight:700"></p>
+      <p style="color:var(--ink-soft);font-size:16px">Các bài tự viết cô sẽ đọc và chấm sau nhé.</p>
+      <button class="btn" id="retryBtn">Làm lại từ đầu 🔁</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <h2 style="margin:0 0 6px;color:#b36b00">💡 Kiến thức cần nhớ</h2>
+  <div id="modalBody"></div>
+  <button class="btn" id="modalClose">Con nhớ rồi 👍</button>
+</div></div>
+
+<script>
+/* ================== DỮ LIỆU ================== */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyvWKGiEadJZC0m2E_ETWm1oGUXTJ7RaNEGJkDT_TiX5UGxaav75rKJ0mN2OV-hQ4s/exec";
+const TEN_BAI = "Lớp 2 - Tuần 1";
+const TEN_LOP = "Lớp 2";
+
+const KNOW = {
+ sv:{cls:'sv',html:'<h3>1. Từ ngữ chỉ <span class="kw-sv">sự vật</span></h3><p>Là những từ dùng để <span class="kw-sv">gọi tên người, con vật, đồ vật, cây cối</span>,...</p><p><span class="ex-lbl">Ví dụ:</span> học sinh, cô giáo, con mèo, cặp sách, cây phượng.</p><p><span class="ex-lbl">Ví dụ thêm:</span> mẹ, bác sĩ, chim sẻ, cá vàng, quyển vở, cái bàn, cây bàng, hoa hồng.</p>',
+     hint:'Từ ngữ chỉ sự vật là những từ dùng để gọi tên người, con vật, đồ vật, cây cối,...'},
+ hd:{cls:'hd',html:'<h3>2. Từ ngữ chỉ <span class="kw-hd">hoạt động</span></h3><p>Là những từ dùng để nói về <span class="kw-hd">việc làm</span> của người, con vật hoặc sự vật.</p><p><span class="ex-lbl">Ví dụ:</span> đọc, viết, chạy, nhảy, hót, bơi.</p><p><span class="ex-lbl">Ví dụ thêm:</span> học bài, quét nhà, tưới cây, đá bóng, múa, bay.</p>',
+     hint:'Từ ngữ chỉ hoạt động là những từ dùng để nói về việc làm của người, con vật hoặc sự vật.'},
+ gt:{cls:'gt',html:'<h3>3. <span class="kw-gt">Câu giới thiệu</span></h3><p>Dùng để <span class="kw-gt">giới thiệu người hoặc sự vật</span>. Câu giới thiệu thường có từ <span class="kw-gt">“là”</span>.</p><p><span class="ex-lbl">Ví dụ:</span> Bạn Hà <span class="kw-gt">là</span> học sinh lớp 2A.</p><p><span class="ex-lbl">Ví dụ thêm:</span> Mẹ em <span class="kw-gt">là</span> giáo viên. Đây <span class="kw-gt">là</span> chiếc cặp sách của em. Trường em <span class="kw-gt">là</span> Trường Tiểu học Hòa Bình.</p>',
+     hint:'Câu giới thiệu dùng để giới thiệu người hoặc sự vật. Câu giới thiệu thường có từ “là”.'}
+};
+
+/* Kí hiệu từ trong bài bấm chọn: "+từ" = đáp án đúng, "~từ" = không tính đúng/sai, "từ#khoá" = gộp các từ cùng khoá thành 1 đáp án */
+const TAP = 'Con bấm vào từ con chọn. Bấm lần nữa để bỏ chọn.';
+const EX = [
+ {n:1,sec:'B. BÀI TẬP CƠ BẢN',k:'sv',title:'Khoanh vào những từ ngữ chỉ sự vật.',how:TAP,blocks:[
+  {type:'pick',parts:[{t:'+học sinh|chạy|+cây bàng|hát|+con thỏ|+quyển vở|đọc sách|+cô giáo|+hoa hồng|bơi'}]}]},
+ {n:2,k:'hd',title:'Khoanh vào những từ ngữ chỉ hoạt động.',how:TAP,blocks:[
+  {type:'pick',parts:[{t:'bút chì|+viết|+nhảy dây|cái bàn|+quét nhà|chim sẻ|+múa|+đọc|cây phượng|+đá bóng'}]}]},
+ {n:3,k:'sv',title:'Xếp các từ sau vào nhóm thích hợp.',how:'Con bấm vào một từ, rồi bấm vào ô nhóm của từ đó.',blocks:[
+  {type:'sort',groups:['Chỉ người','Chỉ con vật','Chỉ đồ vật','Chỉ cây cối'],
+   words:[['bác sĩ',0],['con mèo',1],['bảng lớp',2],['cây cam',3],['bạn Lan',0],['chim chích chòe',1],['hộp bút',2],['hoa cúc',3]]}]},
+ {n:4,k:'sv,hd',title:'Xếp các từ ngữ sau vào hai nhóm: chỉ sự vật và chỉ hoạt động.',how:'Con bấm vào một từ, rồi bấm vào ô nhóm của từ đó.',blocks:[
+  {type:'sort',groups:['Từ ngữ chỉ sự vật','Từ ngữ chỉ hoạt động'],
+   words:[['cặp sách',0],['học bài',1],['con gà',0],['tưới cây',1],['cô giáo',0],['hát',1],['chiếc mũ',0],['chạy',1],['cây xoài',0],['vẽ tranh',1]]}]},
+ {n:5,k:'sv',title:'Gạch dưới từ ngữ chỉ sự vật trong mỗi câu.',how:TAP,blocks:[
+  {type:'pick',parts:[
+   {l:'a)',t:'Trên|+sân trường|,|+cây phượng|tỏa|+bóng mát|.'},
+   {l:'b)',t:'+Bé Mai|cất|+sách|và|+bút|vào|+cặp|.'},
+   {l:'c)',t:'+Chú mèo|nằm|bên|+chiếc ghế|nhỏ|.'},
+   {l:'d)',t:'+Cô giáo|mỉm cười|nhìn|các|+học sinh|.'}]}]},
+ {n:6,k:'hd',title:'Gạch dưới từ ngữ chỉ hoạt động trong mỗi câu.',how:TAP,blocks:[
+  {type:'pick',parts:[
+   {l:'a)',t:'Nam|+đọc|sách|rồi|+viết|bài|vào|vở|.'},
+   {l:'b)',t:'Mẹ|+nấu|cơm|,|còn|em|+nhặt|rau|.'},
+   {l:'c)',t:'Đàn chim|+bay|và|+hót|trên|cành|.'},
+   {l:'d)',t:'Các bạn|+chạy|,|+nhảy|và|+vui chơi|ngoài|sân|.'}]}]},
+ {n:7,k:'sv,hd',title:'Nối sự vật ở cột A với hoạt động phù hợp ở cột B.',how:'Con bấm một ô ở cột A, rồi bấm ô phù hợp ở cột B.',blocks:[
+  {type:'match',left:['1. Cô giáo','2. Chim sẻ','3. Bác nông dân','4. Học sinh','5. Cá vàng'],
+   right:['a. hót líu lo','b. giảng bài','c. tưới rau','d. đọc sách','e. bơi trong bể'],ans:[1,0,2,3,4]}]},
+ {n:8,k:'hd',title:'Chọn từ chỉ hoạt động thích hợp trong ngoặc để điền vào chỗ trống.',how:'Con bấm vào từ đúng để điền vào chỗ trống.',blocks:[
+  {type:'blank',items:[
+   {l:'a)',s:'Buổi sáng, em {đánh} răng rồi {rửa} mặt.',chips:['đánh','rửa']},
+   {l:'b)',s:'Trong giờ học, chúng em chăm chú {nghe} cô giảng bài.',chips:['nghe','chạy']},
+   {l:'c)',s:'Ngoài vườn, ông đang {tưới} cây.',chips:['tưới','đọc']},
+   {l:'d)',s:'Trên sân, các bạn {nhảy} dây rất vui.',chips:['nhảy','nấu']}]}]},
+ {n:9,k:'sv',title:'Chọn từ chỉ sự vật thích hợp để điền vào chỗ trống.',how:'Con bấm vào từ đúng để điền vào chỗ trống.',blocks:[
+  {type:'blank',items:[
+   {l:'a)',s:'{cô giáo} đang giảng bài cho cả lớp.',chips:['cô giáo','chạy']},
+   {l:'b)',s:'Em để sách vở vào {cặp sách} .',chips:['cặp sách','hát']},
+   {l:'c)',s:'{con mèo} đang ngủ bên hiên nhà.',chips:['con mèo','viết']},
+   {l:'d)',s:'Trước lớp có một {cây bàng} xanh tốt.',chips:['cây bàng','nhảy']}]}]},
+ {n:10,k:'sv,hd',title:'Đọc đoạn văn và tìm từ ngữ theo yêu cầu.',how:'Con bấm vào từ con tìm được ngay trong đoạn văn.',
+  passage:'Buổi sáng, Minh đeo cặp đến trường. Trong lớp, cô giáo hướng dẫn các bạn đọc bài và viết chữ. Giờ ra chơi, Minh cùng Nam chạy ra sân, chơi đá cầu dưới gốc phượng.',blocks:[
+  {type:'pick',parts:[
+   {l:'a) Viết 6 từ ngữ chỉ sự vật: (con bấm chọn 6 từ)',cap:6,t:'~Buổi sáng|,|+Minh|đeo|+cặp|đến|+trường|.|Trong|+lớp|,|+cô giáo|hướng dẫn|+các bạn|đọc|+bài|và|viết|+chữ|.|~Giờ ra chơi|,|+Minh|cùng|+Nam|chạy|ra|+sân|,|chơi|đá cầu|dưới|+gốc phượng|.'},
+   {l:'b) Viết 5 từ ngữ chỉ hoạt động: (con bấm chọn 5 từ)',cap:5,t:'Buổi sáng|,|Minh|+đeo|cặp|+đến|trường|.|Trong|lớp|,|cô giáo|+hướng dẫn|các bạn|+đọc|bài|và|+viết|chữ|.|Giờ ra chơi|,|Minh|cùng|Nam|+chạy|~ra|sân|,|+chơi|+đá cầu|dưới|gốc phượng|.'}]}]},
+ {n:11,k:'gt',title:'Nối từ ngữ ở cột A với từ ngữ thích hợp ở cột B để tạo câu giới thiệu.',how:'Con bấm một ô ở cột A, rồi bấm ô phù hợp ở cột B.',blocks:[
+  {type:'match',left:['1. Bạn Hà','2. Bố em','3. Trường em','4. Mi-chi-cô'],
+   right:['a. là bác sĩ.','b. là học sinh lớp 2A.','c. là Trường Tiểu học Hòa Bình.','d. là bạn học sinh mới.'],ans:[1,0,2,3]}]},
+ {n:12,k:'gt',title:'Đánh dấu X vào trước những câu giới thiệu.',how:'Con bấm vào những câu giới thiệu.',blocks:[
+  {type:'pick',parts:[{col:1,t:'+a) Em là học sinh lớp 2.|b) Lan đang đọc sách.|+c) Đây là chiếc hộp bút của em.|d) Chú mèo chạy rất nhanh.|+e) Mẹ em là giáo viên.'}]}]},
+ {n:13,k:'gt',title:'Điền từ “là” vào chỗ trống để hoàn thành câu giới thiệu.',how:'Con bấm vào từ “là” để điền vào chỗ trống.',blocks:[
+  {type:'blank',items:[
+   {l:'a)',s:'Em {là} học sinh lớp 2B.',chips:['là']},
+   {l:'b)',s:'Đây {là} chiếc cặp sách mới của em.',chips:['là']},
+   {l:'c)',s:'Bạn Nam {là} lớp trưởng của lớp em.',chips:['là']},
+   {l:'d)',s:'Con vật em yêu thích {là} chú chó Mít.',chips:['là']}]}]},
+ {n:14,k:'gt',title:'Sắp xếp các từ ngữ sau thành câu giới thiệu đúng.',how:'Con bấm lần lượt các ô theo đúng thứ tự để xếp thành câu.',blocks:[
+  {type:'order',items:[
+   {l:'a)',chips:['học sinh lớp 2A','Mai','là'],acc:[[1,2,0]]},
+   {l:'b)',chips:['của em','chiếc bút chì màu xanh','đây','là'],acc:[[2,3,1,0]]},
+   {l:'c)',chips:['bác sĩ','mẹ Lan','là'],acc:[[1,2,0]]},
+   {l:'d)',chips:['trường của em','Trường Tiểu học Bình Minh','là'],acc:[[0,2,1],[1,2,0]]}]}]},
+ {n:15,k:'gt',title:'Viết câu giới thiệu theo yêu cầu.',how:'Con gõ câu của con vào ô. Cô sẽ đọc và chấm.',blocks:[
+  {type:'free',items:[
+   {l:'a) Giới thiệu về bản thân em:',sample:'Em là học sinh lớp 2A.'},
+   {l:'b) Giới thiệu một người bạn của em:',sample:'Bạn Lan là bạn thân của em.'},
+   {l:'c) Giới thiệu một đồ dùng học tập em thích:',sample:'Đây là chiếc bút chì của em.'},
+   {l:'d) Giới thiệu lớp hoặc trường của em:',sample:'Trường em là Trường Tiểu học Hòa Bình.'}]}]},
+ {n:16,k:'gt',title:'Quan sát các từ gợi ý, viết câu giới thiệu phù hợp.',how:'Con bấm lần lượt các ô theo đúng thứ tự để xếp thành câu giới thiệu.',blocks:[
+  {type:'order',items:[
+   {l:'Từ ngữ gợi ý: Lan - học sinh lớp 2C',chips:['học sinh lớp 2C','là','Lan'],acc:[[2,1,0]]},
+   {l:'Từ ngữ gợi ý: bố em - kĩ sư',chips:['kĩ sư','bố em','là'],acc:[[1,2,0]]},
+   {l:'Từ ngữ gợi ý: đây - quyển truyện em yêu thích',chips:['là','quyển truyện em yêu thích','đây'],acc:[[2,0,1]]}]}]},
+ {n:17,sec:'C. BÀI TẬP NÂNG CAO - MỞ RỘNG',k:'sv,hd',title:'Tìm từ không cùng nhóm và giải thích ngắn gọn.',how:'Ở mỗi dòng, con bấm vào từ không cùng nhóm.',blocks:[
+  {type:'pick',parts:[
+   {l:'a)',t:'cô giáo|học sinh|bác sĩ|+đọc sách',note:'vì “đọc sách” chỉ hoạt động, các từ còn lại chỉ người'},
+   {l:'b)',t:'cái bàn|quyển vở|bút chì|+chạy',note:'vì “chạy” chỉ hoạt động, các từ còn lại chỉ đồ vật'},
+   {l:'c)',t:'nhảy|hát|múa|+cây bàng',note:'vì “cây bàng” chỉ sự vật (cây cối), các từ còn lại chỉ hoạt động'},
+   {l:'d)',t:'con mèo|chim sẻ|cá vàng|+viết bài',note:'vì “viết bài” chỉ hoạt động, các từ còn lại chỉ con vật'}]}]},
+ {n:18,k:'sv,hd,gt',title:'Mỗi dòng có một từ dùng chưa phù hợp. Gạch dưới và thay bằng từ đúng.',how:'Con bấm vào từ dùng chưa phù hợp, rồi gõ lại câu đã sửa. Phần câu sửa cô sẽ chấm.',blocks:[
+  {type:'pick',parts:[
+   {l:'a)',t:'Cô giáo|đang|+quyển sách|cho|cả lớp|.'},
+   {l:'b)',t:'Chú chim|đang|+cái cây|trên|cành|.'},
+   {l:'c)',t:'Em|+là#c|+đọc bài#c|rất|chăm chỉ|.'},
+   {l:'d)',t:'Đây|là|+chạy|của|em|.'}]},
+  {type:'free',items:[
+   {l:'Sửa câu a):',sample:'Cô giáo đang giảng bài cho cả lớp.'},
+   {l:'Sửa câu b):',sample:'Chú chim đang hót trên cành.'},
+   {l:'Sửa câu c):',sample:'Em là học sinh rất chăm chỉ. (hoặc: Em đọc bài rất chăm chỉ.)'},
+   {l:'Sửa câu d):',sample:'Đây là cặp sách của em.'}]}]},
+ {n:19,k:'sv,hd',title:'Viết thêm 3 từ vào mỗi nhóm.',how:'Con gõ thêm 3 từ vào mỗi ô. Cô sẽ đọc và chấm.',blocks:[
+  {type:'free',items:[
+   {l:'a) Từ chỉ người: học sinh, cô giáo, ...',sample:'bác sĩ, mẹ, bạn Lan'},
+   {l:'b) Từ chỉ con vật: con mèo, chim sẻ, ...',sample:'cá vàng, con thỏ, con gà'},
+   {l:'c) Từ chỉ đồ vật: cặp sách, quyển vở, ...',sample:'cái bàn, hộp bút, bút chì'},
+   {l:'d) Từ chỉ hoạt động học tập: đọc, viết, ...',sample:'học bài, vẽ tranh, nghe'},
+   {l:'e) Từ chỉ hoạt động vui chơi: chạy, nhảy, ...',sample:'đá bóng, nhảy dây, múa'}]}]},
+ {n:20,k:'gt',title:'Đọc các câu sau. Gạch dưới câu giới thiệu và khoanh vào từ “là”.',how:'Con bấm vào những câu giới thiệu.',blocks:[
+  {type:'pick',parts:[{col:1,t:'+a) Nam là người bạn thân của em.|b) Nam đá bóng rất giỏi.|+c) Đây là sân trường của chúng em.|d) Các bạn đang chơi dưới gốc cây.|+e) Cô Hương là giáo viên chủ nhiệm lớp em.'}]}]},
+ {n:21,k:'gt',title:'Hoàn thành đoạn hội thoại bằng các câu giới thiệu phù hợp.',how:'Con gõ lời của bạn Bình. Cô sẽ đọc và chấm.',blocks:[
+  {type:'free',items:[
+   {l:'An: Chào bạn! Mình tên là An. Còn bạn tên gì?  —  Bình:',sample:'Mình tên là Bình.'},
+   {l:'An: Bạn học lớp nào?  —  Bình:',sample:'Mình là học sinh lớp 2A.'},
+   {l:'An: Đây là bạn Minh, bạn cùng lớp của mình.  —  Bình:',sample:'Chào Minh! Mình là Bình.'}]}]},
+ {n:22,k:'gt',title:'Viết 3 - 4 câu giới thiệu về bản thân em.',how:'Gợi ý: Em tên là gì? Em học lớp nào, trường nào? Em thích hoạt động gì?',blocks:[
+  {type:'free',items:[{l:'Bài viết của con:',rows:5,sample:'Em tên là Mai. Em là học sinh lớp 2A, Trường Tiểu học Hòa Bình. Em thích đọc sách và vẽ tranh.'}]}]},
+ {n:23,k:'gt',title:'Viết 3 - 4 câu giới thiệu về một người thân hoặc một người bạn.',how:'Trong đoạn, cố gắng dùng ít nhất 2 câu giới thiệu có từ “là”.',blocks:[
+  {type:'free',items:[{l:'Bài viết của con:',rows:5,sample:'Đây là mẹ của em. Mẹ em là giáo viên. Mẹ thường đọc sách cùng em mỗi tối.'}]}]},
+ {n:24,k:'sv,hd,gt',title:'Đọc đoạn văn rồi thực hiện các yêu cầu.',how:'Con bấm chọn ngay trong đoạn văn ở từng câu a, b, c.',
+  passage:'Em là Mai, học sinh lớp 2A. Mẹ em là giáo viên. Mỗi tối, em đọc sách cùng mẹ. Chú mèo Bông thường nằm bên cạnh và nghịch chiếc bút chì của em.',blocks:[
+  {type:'pick',parts:[
+   {l:'a) Gạch dưới 8 từ ngữ chỉ sự vật có trong đoạn văn.',t:'+Em|là|+Mai|,|+học sinh|~lớp 2A|.|+Mẹ|+em|là|+giáo viên|.|Mỗi|~tối|,|+em|đọc|+sách|cùng|+mẹ|.|+Chú mèo Bông|thường|nằm|bên cạnh|và|nghịch|+chiếc bút chì|của|+em|.'},
+   {l:'b) Khoanh vào 3 từ ngữ chỉ hoạt động.',t:'Em|là|Mai|,|học sinh|lớp 2A|.|Mẹ|em|là|giáo viên|.|Mỗi|tối|,|em|+đọc|sách|cùng|mẹ|.|Chú mèo Bông|thường|+nằm|bên cạnh|và|+nghịch|chiếc bút chì|của|em|.'},
+   {l:'c) Tìm 2 câu giới thiệu và chép lại. (con bấm chọn 2 câu)',col:1,t:'+Em là Mai, học sinh lớp 2A.|+Mẹ em là giáo viên.|Mỗi tối, em đọc sách cùng mẹ.|Chú mèo Bông thường nằm bên cạnh và nghịch chiếc bút chì của em.'}]},
+  {type:'free',items:[{l:'d) Viết thêm một câu giới thiệu phù hợp để nối tiếp đoạn văn.',sample:'Bông là chú mèo em yêu quý nhất.'}]}]}
+];
+
+/* ================== CHUẨN BỊ + CHẤM (không phụ thuộc giao diện) ================== */
+function parseToks(str){
+  return str.split('|').map(raw=>{
+    if(/^[.,!?;:]+$/.test(raw)) return {p:1,t:raw};
+    let c=false,n=false,t=raw,key=null;
+    if(t[0]==='+'){c=true;t=t.slice(1);} else if(t[0]==='~'){n=true;t=t.slice(1);}
+    const h=t.indexOf('#'); if(h>=0){key=t.slice(h+1);t=t.slice(0,h);}
+    return {t,c,n,key:key||t.toLowerCase()};
+  });
+}
+function prep(){
+  EX.forEach(ex=>ex.blocks.forEach(b=>{
+    b.done=false;
+    if(b.type==='pick'){ b.parts.forEach(p=>{p.toks=parseToks(p.t);p.sel=new Set();
+      p.keys=[...new Set(p.toks.filter(x=>x.c).map(x=>x.key))];p.max=p.cap||p.keys.length;}); }
+    if(b.type==='sort'){ b.place=b.words.map(()=>-1); b.cur=null; }
+    if(b.type==='match'){ b.pair=b.left.map(()=>-1); b.cur=null; }
+    if(b.type==='blank'){ b.items.forEach(it=>{ it.segs=[]; it.ans=[];
+      it.s.split(/(\{[^}]*\})/).forEach(x=>{ if(x[0]==='{'){it.segs.push({slot:it.ans.length});it.ans.push(x.slice(1,-1));} else if(x) it.segs.push({txt:x}); });
+      it.fill=it.ans.map(()=>-1); }); }
+    if(b.type==='order'){ b.items.forEach(it=>{it.seq=[];}); }
+    if(b.type==='free'){ b.items.forEach(it=>{it.val='';}); }
+  }));
+}
+function pickPartScore(p){
+  const got=new Set(); let wrong=0;
+  p.sel.forEach(i=>{const x=p.toks[i]; if(x.c) got.add(x.key); else if(!x.n) wrong++;});
+  return Math.max(0, Math.min(got.size,p.max)-wrong);
+}
+function orderOk(it){ return it.acc.some(a=>a.length===it.seq.length && a.every((v,i)=>v===it.seq[i])); }
+function scoreBlock(b){ // trả về [điểm, tối đa]
+  if(b.type==='pick'){ let e=0,m=0; b.parts.forEach(p=>{e+=pickPartScore(p);m+=p.max;}); return [e,m]; }
+  if(b.type==='sort'){ return [b.words.filter((w,i)=>b.place[i]===w[1]).length, b.words.length]; }
+  if(b.type==='match'){ return [b.ans.filter((a,i)=>b.pair[i]===a).length, b.ans.length]; }
+  if(b.type==='blank'){ let e=0,m=0; b.items.forEach(it=>it.ans.forEach((a,s)=>{m++; if(it.fill[s]>=0&&it.chips[it.fill[s]]===a) e++;})); return [e,m]; }
+  if(b.type==='order'){ return [b.items.filter(orderOk).length, b.items.length]; }
+  return [0,0];
+}
+function touched(b){
+  if(b.type==='pick') return b.parts.some(p=>p.sel.size>0);
+  if(b.type==='sort') return b.place.some(x=>x>=0);
+  if(b.type==='match') return b.pair.some(x=>x>=0);
+  if(b.type==='blank') return b.items.some(it=>it.fill.some(x=>x>=0));
+  if(b.type==='order') return b.items.some(it=>it.seq.length>0);
+  if(b.type==='free') return b.items.some(it=>it.val.trim()!=='');
+  return false;
+}
+function answerText(b){ // đáp án đúng dạng chữ
+  if(b.type==='pick') return b.parts.map(p=>{
+    const names=p.keys.map(k=>p.toks.find(x=>x.c&&x.key===k).t);
+    const samek=p.toks.filter(x=>x.c).length>names.length && p.toks.some(x=>x.c&&x.key!==x.t.toLowerCase());
+    const list=samek? p.toks.filter(x=>x.c).map(x=>x.t).join(' hoặc ') : names.join(', ');
+    return (p.l?p.l.split(' ')[0]+' ':'')+(p.cap?'chọn '+p.cap+' trong các từ: ':'')+list+(p.note?' ('+p.note+')':'');
+  }).join('<br>');
+  if(b.type==='sort') return b.groups.map((g,gi)=>'<b>'+g+':</b> '+b.words.filter(w=>w[1]===gi).map(w=>w[0]).join(', ')).join('<br>');
+  if(b.type==='match') return b.left.map((l,i)=>l+' → '+b.right[b.ans[i]]).join('<br>');
+  if(b.type==='blank') return b.items.map(it=>it.l+' '+it.ans.join(', ')).join('<br>');
+  if(b.type==='order') return b.items.map(it=>it.l+' → '+it.acc.map(a=>{const s=a.map(i=>it.chips[i]).join(' ');return s[0].toUpperCase()+s.slice(1)+'.';}).join(' (hoặc: ')+(it.acc.length>1?')':'')).join('<br>');
+  return '';
+}
+/*--UI--*/
+/* ================== GIAO DIỆN ================== */
+const $=id=>document.getElementById(id);
+function mk(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+let submitted=false;
+
+function drawPick(b,box){
+  box.innerHTML='';
+  b.parts.forEach(p=>{
+    const part=mk('div','part'); if(p.l) part.appendChild(mk('div','part-lbl',p.l));
+    const row=mk('div','toks'+(p.col?' col':''));
+    const full=b.done && pickPartScore(p)===p.max;
+    p.toks.forEach((x,i)=>{
+      if(x.p){row.appendChild(mk('span','pt',x.t));return;}
+      const c=mk('button','chip',x.t); c.type='button';
+      const on=p.sel.has(i);
+      if(b.done){ c.disabled=true;
+        if(on&&x.c) c.classList.add('ok'); else if(on&&!x.c&&!x.n) c.classList.add('bad'); else if(on) c.classList.add('on');
+        else if(x.c&&!full) c.classList.add('miss');
+      } else { if(on) c.classList.add('on'); c.onclick=()=>{ on?p.sel.delete(i):p.sel.add(i); drawPick(b,box); progress(); }; }
+      row.appendChild(c);
+    });
+    part.appendChild(row); box.appendChild(part);
+  });
+}
+function drawSort(b,box){
+  box.innerHTML='';
+  const pool=mk('div','toks pool');
+  b.words.forEach((w,i)=>{ if(b.place[i]>=0) return;
+    const c=mk('button','chip'+(b.cur===i?' on':''),w[0]); c.type='button';
+    if(b.done){c.disabled=true;c.classList.add('bad');} else c.onclick=()=>{b.cur=(b.cur===i?null:i);drawSort(b,box);};
+    pool.appendChild(c); });
+  box.appendChild(pool);
+  const gs=mk('div','groups');
+  b.groups.forEach((g,gi)=>{
+    const gb=mk('div','gbox'); gb.appendChild(mk('h4',null,g));
+    const row=mk('div','toks');
+    b.words.forEach((w,i)=>{ if(b.place[i]!==gi) return;
+      const c=mk('button','chip',w[0]); c.type='button';
+      if(b.done){c.disabled=true;c.classList.add(w[1]===gi?'ok':'bad');}
+      else c.onclick=(e)=>{e.stopPropagation();b.place[i]=-1;drawSort(b,box);progress();};
+      row.appendChild(c); });
+    gb.appendChild(row);
+    if(!b.done) gb.onclick=()=>{ if(b.cur!=null){b.place[b.cur]=gi;b.cur=null;drawSort(b,box);progress();} };
+    gs.appendChild(gb);
+  });
+  box.appendChild(gs);
+}
+function drawMatch(b,box){
+  box.innerHTML='';
+  const cols=mk('div','mcols'), L=mk('div'), R=mk('div');
+  b.left.forEach((t,i)=>{
+    const c=mk('button','chip'+(b.cur===i?' on':'')); c.type='button';
+    if(b.pair[i]>=0) c.appendChild(mk('span','bdg c'+i,String(i+1)));
+    c.appendChild(mk('span',null,t));
+    if(b.done){c.disabled=true;c.classList.add(b.pair[i]===b.ans[i]?'ok':'bad');}
+    else c.onclick=()=>{b.cur=(b.cur===i?null:i);drawMatch(b,box);};
+    L.appendChild(c); });
+  b.right.forEach((t,j)=>{
+    const c=mk('button','chip'); c.type='button';
+    const li=b.pair.indexOf(j);
+    if(li>=0) c.appendChild(mk('span','bdg c'+li,String(li+1)));
+    c.appendChild(mk('span',null,t));
+    if(b.done) c.disabled=true;
+    else c.onclick=()=>{ if(b.cur==null){ if(li>=0){b.pair[li]=-1;drawMatch(b,box);progress();} return; }
+      if(li>=0) b.pair[li]=-1; b.pair[b.cur]=j; b.cur=null; drawMatch(b,box); progress(); };
+    R.appendChild(c); });
+  cols.appendChild(L); cols.appendChild(R); box.appendChild(cols);
+}
+function drawBlank(b,box){
+  box.innerHTML='';
+  b.items.forEach(it=>{
+    const s=mk('div','sent'); if(it.l) s.appendChild(mk('span',null,it.l+' '));
+    it.segs.forEach(g=>{
+      if(g.txt!=null){s.appendChild(mk('span',null,g.txt));return;}
+      const f=it.fill[g.slot]; const sl=mk('button','slot',f>=0?it.chips[f]:'……'); sl.type='button';
+      if(b.done){sl.disabled=true;sl.classList.add(f>=0&&it.chips[f]===it.ans[g.slot]?'ok':'bad');}
+      else sl.onclick=()=>{it.fill[g.slot]=-1;drawBlank(b,box);progress();};
+      s.appendChild(sl); });
+    box.appendChild(s);
+    const row=mk('div','toks');
+    it.chips.forEach((t,ci)=>{
+      const used=it.fill.includes(ci);
+      const c=mk('button','chip'+(used?' used':''),t); c.type='button';
+      if(b.done||used) c.disabled=true;
+      else c.onclick=()=>{ let k=it.fill.indexOf(-1); if(k<0) k=it.fill.length-1; it.fill[k]=ci; drawBlank(b,box); progress(); };
+      row.appendChild(c); });
+    box.appendChild(row);
+  });
+}
+function drawOrder(b,box){
+  box.innerHTML='';
+  b.items.forEach(it=>{
+    const part=mk('div','part'); part.appendChild(mk('div','part-lbl',it.l));
+    const row=mk('div','toks');
+    it.chips.forEach((t,ci)=>{ const used=it.seq.includes(ci);
+      const c=mk('button','chip'+(used?' used':''),t); c.type='button';
+      if(b.done||used) c.disabled=true; else c.onclick=()=>{it.seq.push(ci);drawOrder(b,box);progress();};
+      row.appendChild(c); });
+    part.appendChild(row);
+    const line=mk('div','line toks'+(b.done?(orderOk(it)?' ok':' bad'):''));
+    line.appendChild(mk('span','pt','→'));
+    it.seq.forEach((ci,pos)=>{ const c=mk('button','chip on',it.chips[ci]); c.type='button';
+      if(b.done) c.disabled=true; else c.onclick=()=>{it.seq.splice(pos,1);drawOrder(b,box);progress();};
+      line.appendChild(c); });
+    part.appendChild(line); box.appendChild(part);
+  });
+}
+function drawFree(b,box){
+  box.innerHTML='';
+  b.items.forEach(it=>{
+    const part=mk('div','part'); part.appendChild(mk('div','part-lbl',it.l));
+    const ta=mk('textarea'); ta.rows=it.rows||2; ta.placeholder='Con viết vào đây...'; ta.value=it.val;
+    ta.oninput=()=>{it.val=ta.value;progress();}; if(b.done) ta.readOnly=true;
+    part.appendChild(ta);
+    if(b.done){ const f=mk('div','fb wait'); f.innerHTML='📝 Cô sẽ chấm câu này. <b>Câu mẫu:</b> '; f.appendChild(document.createTextNode(it.sample)); part.appendChild(f); }
+    box.appendChild(part);
+  });
+}
+const DRAW={pick:drawPick,sort:drawSort,match:drawMatch,blank:drawBlank,order:drawOrder,free:drawFree};
+
+function showKnow(keys){
+  const body=$('modalBody'); body.innerHTML='';
+  keys.split(',').forEach(k=>{const d=mk('div','kcard '+KNOW[k].cls);d.innerHTML=KNOW[k].html;body.appendChild(d);});
+  $('modal').classList.add('show');
+}
+function renderAll(){
+  const kc=$('knowCards'); kc.innerHTML='';
+  ['sv','hd','gt'].forEach(k=>{const d=mk('div','kcard '+KNOW[k].cls);d.innerHTML=KNOW[k].html;kc.appendChild(d);});
+  const list=$('exList'); list.innerHTML='';
+  EX.forEach(ex=>{
+    if(ex.sec) list.appendChild(mk('div','sec-title',ex.sec));
+    const card=mk('div','card'); ex.card=card;
+    const head=mk('div','q-head'); head.appendChild(mk('span','q-num','Bài '+ex.n));
+    const rv=mk('button','review','💡 Xem lại kiến thức'); rv.type='button'; rv.onclick=()=>showKnow(ex.k); head.appendChild(rv);
+    card.appendChild(head);
+    card.appendChild(mk('div','q-title',ex.title));
+    if(ex.how) card.appendChild(mk('p','how','👉 '+ex.how));
+    if(ex.passage) card.appendChild(mk('div','passage',ex.passage));
+    ex.blocks.forEach(b=>{ b.box=mk('div'); card.appendChild(b.box); DRAW[b.type](b,b.box); });
+    ex.fb=mk('div'); card.appendChild(ex.fb);
+    list.appendChild(card);
+  });
+  progress();
+}
+function progress(){
+  const n=EX.filter(ex=>ex.blocks.some(touched)).length;
+  $('progress').textContent='Con đã làm '+n+' / '+EX.length+' bài';
+}
+const PRAISE=['🌟 Giỏi lắm! Con làm đúng hết rồi!','🎉 Tuyệt vời! Đúng hết!','👏 Hoan hô con! Chính xác!','💯 Xuất sắc! Con làm rất tốt!'];
+
+$('startBtn').onclick=()=>{ $('exArea').style.display='block'; EX[0].card.scrollIntoView({behavior:'smooth',block:'start'}); };
+$('modalClose').onclick=()=>$('modal').classList.remove('show');
+$('modal').onclick=(e)=>{ if(e.target===$('modal')) $('modal').classList.remove('show'); };
+
+$('submitBtn').onclick=()=>{
+  if(submitted) return;
+  const name=$('studentName');
+  if(name.value.trim()===''){ name.style.borderColor='var(--coral)'; name.placeholder='Con nhớ điền tên trước khi nộp bài nhé!'; name.scrollIntoView({behavior:'smooth',block:'center'}); name.focus(); return; }
+  name.style.borderColor='';
+  submitted=true;
+  let earned=0, possible=0; const essay=[];
+  EX.forEach((ex,xi)=>{
+    let e=0,m=0; const ans=[]; let hasFree=false;
+    ex.blocks.forEach(b=>{
+      b.done=true; const r=scoreBlock(b); e+=r[0]; m+=r[1];
+      if(b.type==='free'){ hasFree=true; b.items.forEach(it=>essay.push('Bài '+ex.n+' - '+it.l+' '+(it.val.trim()||'(chưa viết)'))); }
+      else if(r[0]<r[1]) ans.push(answerText(b));
+      DRAW[b.type](b,b.box);
+    });
+    earned+=e; possible+=m;
+    ex.fb.innerHTML='';
+    if(m>0){
+      const f=mk('div','fb '+(e===m?'good':'fix'));
+      if(e===m) f.textContent=PRAISE[xi%PRAISE.length]+' ('+e+'/'+m+' điểm)';
+      else { f.innerHTML='Con được <b>'+e+'/'+m+'</b> điểm. <b>Đáp án đúng:</b><br>'+ans.join('<br>')+
+        '<span class="hint">💡 Nhớ nhé: '+ex.k.split(',').map(k=>KNOW[k].hint).join(' ')+'</span>'; }
+      ex.fb.appendChild(f);
+    }
+  });
+  try{
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({bai:TEN_BAI,hoten:name.value.trim(),lop:TEN_LOP,diem:earned,tongdiem:possible,tuluan:essay.join('\n')})
+    }).catch(()=>{});
+  }catch(err){}
+  const pct=Math.round(earned/possible*100); let emo,msg;
+  if(pct>=90){emo='🌞';msg='Tuyệt vời! Con giỏi quá!';}
+  else if(pct>=70){emo='🌤️';msg='Rất tốt! Con xem lại vài câu sai nhé.';}
+  else if(pct>=50){emo='⛅';msg='Khá lắm! Con đọc lại kiến thức rồi thử lại nhé.';}
+  else{emo='🌈';msg='Đừng lo! Con đọc lại phần kiến thức rồi làm lại nhé.';}
+  $('resEmo').textContent=emo; $('resScore').textContent=earned+' / '+possible+' điểm';
+  $('resMsg').textContent=name.value.trim()+' ơi, '+msg;
+  $('result').style.display='block'; $('submitBtn').style.display='none';
+  $('result').scrollIntoView({behavior:'smooth',block:'center'});
+};
+$('retryBtn').onclick=()=>{
+  submitted=false; prep(); renderAll();
+  $('result').style.display='none'; $('submitBtn').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+
+prep(); renderAll();
+</script>
+</body>
+</html>
