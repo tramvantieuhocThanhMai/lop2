@@ -3,88 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thư viện bài tập Tiếng Việt Lớp 2</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<title>Thư viện Bài tập Tiếng Việt — Lớp 2</title>
 <style>
-:root{--sun:#ffc93c;--sun-deep:#ffab00;--coral:#ff6b6b;--coral-deep:#e8523f;--leaf:#3fb083;--plum:#8675a9;--ink:#2d3142;--ink-soft:#5a5f75;}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-body{margin:0;font-family:'Quicksand',system-ui,sans-serif;color:var(--ink);font-size:19px;min-height:100vh;padding-bottom:50px;
- background:radial-gradient(circle at 12% 8%,#fff6da 0%,transparent 45%),radial-gradient(circle at 90% 4%,#ffe1e1 0%,transparent 40%),linear-gradient(180deg,#eaf6ff 0%,#f5fbff 60%,#fdf9ef 100%);}
-.hero{text-align:center;padding:34px 18px 8px;}
-.badge{display:inline-block;background:#fff;border:2px dashed var(--sun-deep);color:var(--coral-deep);font-weight:700;font-size:16px;padding:6px 18px;border-radius:999px;margin-bottom:12px;}
-h1{font-family:'Baloo 2',sans-serif;font-size:clamp(30px,7.5vw,46px);line-height:1.15;margin:0 0 8px;color:var(--coral-deep);}
-.hero p{margin:0 auto;max-width:520px;font-weight:600;color:var(--ink-soft);}
-.list{max-width:640px;margin:26px auto 0;padding:0 14px;display:flex;flex-direction:column;gap:16px;}
-.item{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);background:#fff;border-radius:24px;padding:16px 18px;border:3px solid #fff;box-shadow:0 10px 26px rgba(45,49,66,.10);}
-.item:active{transform:scale(.98);}
-.item:hover,.item:focus-visible{border-color:var(--sun-deep);outline:none;}
-.num{flex:none;width:68px;height:68px;border-radius:22px;background:var(--sun);color:#7a4b00;font-family:'Baloo 2',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;}
-.num small{font-size:14px;font-weight:700;}
-.num b{font-size:30px;font-weight:800;}
-.item:nth-child(3n+2) .num{background:#bfe8d6;color:#1d6a4a;}
-.item:nth-child(3n) .num{background:#dcd4f0;color:#4d3f7a;}
-.txt{flex:1;min-width:0;}
-.txt .t{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:23px;line-height:1.25;}
-.txt .s{font-weight:600;font-size:16px;color:var(--ink-soft);}
-.new{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px;margin-left:6px;vertical-align:middle;}
-.go{flex:none;font-size:26px;}
-.msg{text-align:center;font-weight:700;color:var(--ink-soft);padding:26px 10px;}
-.note{max-width:640px;margin:26px auto 0;padding:0 18px;text-align:center;font-weight:600;color:var(--ink-soft);font-size:17px;}
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #fff8ec;
+    color: #33312e;
+    line-height: 1.5;
+  }
+  header {
+    background: #ff8a3d;
+    color: #fff;
+    text-align: center;
+    padding: 30px 16px 26px;
+    border-radius: 0 0 28px 28px;
+  }
+  header .tag { font-size: .85rem; letter-spacing: 2px; font-weight: 700; opacity: .9; }
+  header h1 { margin: 6px 0 8px; font-size: 1.7rem; }
+  header p { margin: 0 auto; max-width: 560px; font-size: 1rem; }
+  main { max-width: 760px; margin: 0 auto; padding: 22px 14px 40px; }
+  h2 { font-size: 1.2rem; margin: 8px 0 14px; color: #c9560a; }
+  .list { display: grid; gap: 12px; }
+  a.item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 2px solid #ffd2b0;
+    border-radius: 16px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 3px 0 #ffd2b0;
+  }
+  a.item:hover, a.item:focus { border-color: #ff8a3d; box-shadow: 0 3px 0 #ff8a3d; }
+  .badge {
+    flex: 0 0 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #ff8a3d;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .text { flex: 1; min-width: 0; }
+  .text b { display: block; font-size: 1.08rem; color: #33312e; }
+  .text span { font-size: .9rem; color: #7d766a; }
+  .arrow { font-size: 1.3rem; color: #ff8a3d; font-weight: 700; }
+  footer { text-align: center; font-size: .9rem; color: #8a8377; padding: 0 14px 28px; }
 </style>
 </head>
 <body>
-<div class="hero">
-  <span class="badge">Tiếng Việt Lớp 2</span>
-  <h1>Thư viện bài tập tương tác</h1>
-  <p>Con chọn tuần cần làm rồi bấm vào để bắt đầu nhé! 🌈</p>
-</div>
+<header>
+  <div class="tag">THƯ VIỆN BÀI TẬP</div>
+  <h1>Bài tập Tiếng Việt — Lớp 2</h1>
+  <p>Chọn đúng tuần học để bắt đầu làm bài. Mỗi bài đều được chấm điểm tự động ngay khi nộp.</p>
+</header>
 
-<div class="list" id="list"><div class="msg">⏳ Đang tìm bài tập...</div></div>
-<p class="note">Làm xong con nhớ bấm “Nộp bài” để cô nhận được điểm nhé.</p>
+<main>
+  <h2>📚 Phiếu bài tập tuần — Năm học 2026 – 2027</h2>
+  <div class="list" id="list"></div>
+</main>
+
+<footer>Thư viện bài tập của cô Thanh Mai · Cập nhật theo từng tuần 🌈</footer>
 
 <script>
-/* ================= HƯỚNG DẪN CHO GIÁO VIÊN =================
-   Trang này TỰ TÌM mọi file phieu-lop2-tuan<N>.html nằm cùng thư mục.
-   Thêm phiếu mới: chỉ cần tải file phieu-lop2-tuan<N>.html lên repo, KHÔNG cần sửa trang này.
-   Muốn hiện tên bài dưới chữ "Tuần N" thì thêm 1 dòng vào bảng TEN_BAI bên dưới (không bắt buộc). */
-var TEN_BAI={
-  5:"Khi trang sách mở ra"
-};
-var TUAN_TOI_DA=40;          /* tìm từ tuần 1 đến tuần 40 */
-var DU_PHONG=[1,5];          /* nếu máy không tự tìm được thì hiện các tuần này */
+  // ====== CÔ CHỈ CẦN SỬA Ở ĐÂY ======
+  // Mỗi tuần là 1 dòng: tuan = số tuần, ten = tên bài / nội dung học,
+  // mota = các dạng bài, file = tên file đã tải lên GitHub.
+  // Thêm tuần mới: chép 1 dòng, sửa lại nội dung, nhớ giữ dấu phẩy cuối dòng.
+  var DANH_SACH = [
+    { tuan: 1, ten: "Từ chỉ sự vật, hoạt động. Câu giới thiệu", mota: "Luyện từ và câu · Chấm điểm tự động", file: "phieu-lop2-tuan1.html" },
+    { tuan: 2, ten: "Từ chỉ sự vật, hoạt động. Câu giới thiệu (tiếp)", mota: "Luyện từ và câu · Chấm điểm tự động", file: "phieu-lop2-tuan2.html" },
+    { tuan: 5, ten: "Khi trang sách mở ra", mota: "Đọc hiểu · Luyện tập · Chấm điểm tự động", file: "phieu-lop2-tuan5.html" },
+  ];
+  // ===================================
 
-function fileName(n){return "phieu-lop2-tuan"+n+".html";}
-function render(weeks){
-  var list=document.getElementById("list");
-  if(!weeks.length){list.innerHTML='<div class="msg">Chưa có bài tập nào. Con quay lại sau nhé!</div>';return;}
-  weeks.sort(function(a,b){return b-a;});   /* tuần mới nhất ở trên cùng */
-  list.innerHTML="";
-  weeks.forEach(function(n,i){
-    var a=document.createElement("a");a.className="item";a.href=fileName(n);
-    var num=document.createElement("div");num.className="num";num.innerHTML="<small>Tuần</small><b>"+n+"</b>";
-    var txt=document.createElement("div");txt.className="txt";
-    var t=document.createElement("div");t.className="t";t.textContent=TEN_BAI[n]||("Phiếu bài tập tuần "+n);
-    if(i===0&&weeks.length>1){var nw=document.createElement("span");nw.className="new";nw.textContent="Mới";t.appendChild(nw);}
-    var s=document.createElement("div");s.className="s";s.textContent="Bấm để làm bài";
-    txt.appendChild(t);txt.appendChild(s);
-    var go=document.createElement("div");go.className="go";go.textContent="👉";
-    a.appendChild(num);a.appendChild(txt);a.appendChild(go);list.appendChild(a);
+  var list = document.getElementById("list");
+  DANH_SACH.sort(function (a, b) { return a.tuan - b.tuan; });
+  DANH_SACH.forEach(function (d) {
+    var a = document.createElement("a");
+    a.className = "item";
+    a.href = d.file;
+    var badge = document.createElement("div");
+    badge.className = "badge";
+    badge.textContent = "T" + d.tuan;
+    var text = document.createElement("div");
+    text.className = "text";
+    var b = document.createElement("b");
+    b.textContent = "Tuần " + d.tuan + " — " + d.ten;
+    var s = document.createElement("span");
+    s.textContent = d.mota;
+    text.appendChild(b);
+    text.appendChild(s);
+    var arrow = document.createElement("div");
+    arrow.className = "arrow";
+    arrow.textContent = "→";
+    a.appendChild(badge);
+    a.appendChild(text);
+    a.appendChild(arrow);
+    list.appendChild(a);
   });
-}
-function check(n){
-  return fetch(fileName(n),{method:"HEAD",cache:"no-store"})
-    .then(function(r){return r.ok?n:null;})
-    .catch(function(){return "err";});
-}
-(function(){
-  var jobs=[];for(var n=1;n<=TUAN_TOI_DA;n++)jobs.push(check(n));
-  Promise.all(jobs).then(function(res){
-    var found=res.filter(function(x){return typeof x==="number";});
-    var allErr=res.every(function(x){return x==="err";});
-    render(allErr?DU_PHONG.slice():found);
-  });
-})();
 </script>
 </body>
 </html>
